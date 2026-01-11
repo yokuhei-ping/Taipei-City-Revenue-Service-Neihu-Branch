@@ -163,7 +163,7 @@
     </div>
   </header>
 
-  <main>
+<main>
     <section class="hero">
       <div class="wrap">
         <div class="heroCard">
@@ -185,10 +185,24 @@
           </div>
         </div>
 
-        <div class="videoGrid" id="videoGrid"></div>
+        <div class="videoGrid" id="videoGridA"></div>
       </div>
     </section>
-  </main>
+  
+    <section class="section">
+      <div class="wrap">
+        <div class="sectionTitle">
+          <div>
+            <h3>教學影片</h3>
+            <p>房屋稅額e化查詢平台：地方稅網路申報紀錄、地價稅稅額試算、地價稅自用住宅用地簡易申請</p>
+          </div>
+        </div>
+
+        <div class="videoGrid" id="videoGridB"></div>
+      </div>
+    </section>
+
+</main>
 
   <footer>
     <div class="wrap">
@@ -198,8 +212,8 @@
     </div>
   </footer>
 
-  <script>
-    const videos = [
+    <script>
+    const videosA = [
       {
         title: '申請地價稅課稅明細表',
         url: 'https://www.youtube.com/watch?v=fA6IdkwiORk',
@@ -224,32 +238,9 @@
         tag: '稅務入口網',
         desc: '線上申辦指引：如何利用網路申請核發無違章欠稅證明（地方稅）。'
       },
-     
     ];
-    <section class="section1">
-      <div class="wrap">
-        <div class="sectionTitle">
-          <div>
-            <h3>教學影片</h3>
-            <p>房屋稅額e化查詢平台：地方稅網路申報紀錄、地價稅稅額試算、地價稅自用住宅用地簡易申請</p>
-          </div>
-        </div>
 
-        <div class="videoGrid" id="videoGrid"></div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <div class="foot">
-        <div><b>臺北市稅捐稽徵處｜內湖分處</b>　稅務申辦教你做～</div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const videos = [
+    const videosB = [
       {
         title: '房屋稅',
         url: 'https://youtu.be/yPs44-PjHAU?si=OToLvWVRx81Gk2Pr',
@@ -270,12 +261,13 @@
         url: 'https://youtu.be/4ZxrDSmripE?si=MWe5GJbwYN0VWLDC',
         tag: '房地e化查詢平台'
       },
-     {
+      {
         title: '地價稅稅額試算',
         url: 'https://youtu.be/K2t9C-CS3I0?si=dA7FOmQmx3FB6jaO',
         tag: '房地e化查詢平台'
       },
     ];
+
     function getVideoId(url){
       try{
         const u = new URL(url);
@@ -300,8 +292,10 @@
         .replaceAll("'",'&#039;');
     }
 
-    function render(){
-      const grid = document.getElementById('videoGrid');
+    function render(gridId, videos){
+      const grid = document.getElementById(gridId);
+      if(!grid) return;
+
       grid.innerHTML = videos.map(v => {
         const id = getVideoId(v.url);
         const embed = id ? `https://www.youtube.com/embed/${id}` : '';
@@ -329,7 +323,8 @@
     const menuBtn = document.getElementById('menuBtn');
     const mobileMenu = document.getElementById('mobileMenu');
     menuBtn?.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-        // 桌機下拉：點一下也能開，點外面/ESC 會收
+
+    // 桌機下拉：點一下也能開，點外面/ESC 會收
     document.querySelectorAll('.dropBtn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -338,7 +333,7 @@
         btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       });
     });
-    
+
     function closeDrops(){
       document.querySelectorAll('.drop.open').forEach(d => {
         d.classList.remove('open');
@@ -349,7 +344,9 @@
     document.addEventListener('click', closeDrops);
     document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeDrops(); });
 
-    render();
+    // ✅ 兩區塊各自渲染
+    render('videoGridA', videosA);
+    render('videoGridB', videosB);
   </script>
 </body>
 </html>
