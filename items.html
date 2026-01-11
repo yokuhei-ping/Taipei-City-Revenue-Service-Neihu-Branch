@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="內湖分處宣導品品項：可搜尋、篩選、依雲端發票張數排序，快速查詢兌換方式與注意事項。" />
+  <title>內湖分處｜宣導品品項</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body class="page-items">
+ <header class="top">
+    <div class="wrap">
+      <div class="inner">
+        <a class="brand" href="index.html" title="宣導首頁">
+          <div class="logo">TRS</div>
+          <div>
+            <h1>臺北市稅捐稽徵處｜內湖分處</h1>
+            <p>租稅宣導專區（入口）</p>
+          </div>
+        </a>
+
+        <!-- 桌機導覽：如果你的檔名不同，改 href 即可 -->
+        <nav class="nav navDesktop" aria-label="主選單">
+          <a class="btn primary" href="index.html">首頁</a>
+          <a class="btn" href="items.html">宣導品品項</a>
+          <div class="drop">
+            <button class="btn dropBtn" type="button" aria-haspopup="true" aria-expanded="false">
+              宣導專區 <span aria-hidden="true">▾</span>
+            </button>
+            <div class="dropMenu" role="menu" aria-label="宣導專區子頁面">
+              <div class="dropTitle">宣導專區</div>
+              <a class="dropItem" role="menuitem" href="promo-howto.html">稅務申辦教你做～</a>
+              <a class="dropItem" role="menuitem" href="promo-einvoice.html">AI帶你了解雲端發票</a>
+              <a class="dropItem" role="menuitem" href="promo-taxedu.html">稅務宣導</a>
+              <div class="dropSep"></div>
+              <a class="dropItem" role="menuitem" href="promo.html">回到宣導專區入口</a>
+            </div>
+          </div>
+
+          <a class="btn" href="schedule.html">租稅宣導期程</a>
+          <a class="btn" href="gallery.html">宣導成果回顧</a>
+          <a class="btn" href="contact.html">聯絡資訊</a>
+        </nav>
+
+        <!-- 手機選單 -->
+        <button class="menuBtn" id="menuBtn" aria-label="開啟選單" type="button">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M4 6.5h16a1 1 0 1 1 0 2H4a1 1 0 0 1 0-2Zm0 6h16a1 1 0 1 1 0 2H4a1 1 0 0 1 0-2Zm0 6h16a1 1 0 1 1 0 2H4a1 1 0 0 1 0-2Z"/></svg>
+        </button>
+      </div>
+
+      <div class="navMobile hidden" id="mobileMenu">
+        <div class="grid">
+          <a class="navLink" href="index.html">首頁</a>
+          <a class="navLink" href="items.html">宣導品品項</a>
+          <a class="navLink" href="promo.html">宣導專區入口</a>
+          <a class="navLink" href="promo-howto.html">稅務申辦教你做～</a>
+          <a class="navLink" href="promo-einvoice.html">AI帶你了解雲端發票</a>
+          <a class="navLink" href="promo-taxedu.html">稅務宣導</a>
+
+          <a class="navLink" href="schedule.html">租稅宣導期程</a>
+          <a class="navLink" href="gallery.html">宣導成果回顧</a>
+          <a class="navLink" href="contact.html">聯絡資訊</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="heroGrid">
+          <div class="heroCard">
+            <div class="heroTitle">
+              <div>
+                <h2>宣導品品項</h2>
+                <div class="sub">快速查「需要幾張雲端發票」與「是否兌換完畢」。支援搜尋、依張數排序、只看可兌換。</div>
+              </div>
+              <div class="tag" title="請依實際更新日期調整">
+                <span class="dot"></span>
+                更新：<b id="updated">114/06/26</b>
+              </div>
+            </div>
+
+            <div class="notice">
+              <div class="box">
+                <h3>兌換注意事項</h3>
+                <ul>
+                  <li>數量有限，換完為止。</li>
+                  <li>本活動為<strong>隨機捐贈</strong>（例如：伊甸基金會／創世基金會）。</li>
+                  <li><strong><font color="#FF0000">不提供郵寄服務</font></strong>；以<strong>登記優先順序</strong>兌換，若兌換完畢不另行通知。</li>
+                  <li>如欲兌換，請先致電承辦人：<strong>(02) 2792-2059 轉 407</strong>（將另行通知取貨時間）。</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="filters" id="items">
+              <div class="field">
+                <label for="q">搜尋</label>
+                <input id="q" placeholder="輸入品名關鍵字：例如 史努比 / 保溫 / 垃圾袋" />
+              </div>
+              <div class="field">
+                <label for="status">狀態</label>
+                <select id="status">
+                  <option value="all">全部</option>
+                  <option value="available">只看可兌換</option>
+                  <option value="out">只看兌換完畢</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="sort">排序</label>
+                <select id="sort">
+                  <option value="invoicesAsc">張數：由少到多</option>
+                  <option value="invoicesDesc">張數：由多到少</option>
+                  <option value="nameAsc">品名：A→Z</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="summary">
+              <div class="meta" id="meta">載入中…</div>
+              <div class="chips" aria-label="快速分類">
+                <div class="chip active" data-cat="all">全部</div>
+                <div class="chip" data-cat="折價專區">折價專區</div>
+                <div class="chip" data-cat="禮卡/禮券">禮卡/禮券</div>
+                <div class="chip" data-cat="日用品">日用品</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="heroCard">
+            <div class="tag"><span class="dot"></span> 建議做法</div>
+            <p class="sub" style="margin-top:10px">
+              你只要更新下方「資料清單」就會自動換版面。圖片可放在 <b>assets/items/</b>，
+              例如 <b>assets/items/snoopy-mug.jpg</b>。
+            </p>
+            <div class="notice" style="margin-top:12px">
+              <div class="box">
+                <h3>上架到 GitHub Pages（超快）</h3>
+                <ul>
+                  <li>把本檔案存成 <b>items.html</b> 丟到 repo 根目錄</li>
+                  <li>Settings → Pages → main / (root)</li>
+                  <li>網址：<b>https://帳號.github.io/RepoName/items.html</b></li>
+                </ul>
+              </div>
+            </div>
+            <a class="btn primary" href="#items" style="display:block;margin-top:12px">開始查品項</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="grid" id="grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot">
+        <div><b>臺北市稅捐稽徵處｜內湖分處</b>　宣導品品項頁（靜態網頁範本）</div>
+        <div>提醒：本頁資訊請依實際庫存、活動規範與公告更新。請勿在公開頁面揭露不必要的個資。</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    /**
+     * ✅ 只要改這個 items 清單就好
+     * img：放你 repo 的相對路徑，例如 assets/items/xxx.jpg
+     */
+    const items = [
+      { id: 'pot16', category: '折價專區', name: 'Dashiang 碳鋼 單把奶鍋 16cm', invoices: 25, channel: '雲端發票', status: 'available', note: '', img: '' },
+      { id: 'wolfBottle', category: '折價專區', name: '飛狼 (316)不鏽鋼保溫瓶/個', invoices: 20, channel: '雲端發票', status: 'limited', note: '剩下綠色~', img: '' },
+      { id: 'smileBag', category: '折價專區', name: '微笑保溫休閒提袋/個', invoices: 20, channel: '雲端發票', status: 'available', note: '', img: '' },
+      { id: 'snoopyMug', category: '折價專區', name: '史努比 馬克杯 (490ML)/個', invoices: 10, channel: '雲端發票', status: 'available', note: '', img: '' },
+      { id: 'toteCooler', category: '折價專區', name: '飛行托特保溫袋/個', invoices: 10, channel: '雲端發票', status: 'available', note: '', img: '' },
+      { id: 'trash5L', category: '日用品', name: '北市專用垃圾袋（5 公升）', invoices: 5, channel: '雲端發票', status: 'available', note: '', img: '' },
+      { id: 'deskCalendar', category: '日用品', name: '114年桌曆', invoices: 6, channel: '雲端發票', status: 'available', note: '', img: '' },
+      { id: '7card100', category: '禮卡/禮券', name: '統一超商實品商品卡（100元）', invoices: 20, channel: '雲端發票', status: 'available', note: '', img: '' },
+      { id: 'fami100', category: '禮卡/禮券', name: '全家 商品卡（100元）', invoices: 20, channel: '雲端發票', status: 'available', note: '', img: '' },
+      { id: 'pxMart100', category: '禮卡/禮券', name: '100元全聯禮券', invoices: 20, channel: '雲端發票', status: 'available', note: '', img: '' },
+      { id: 'carrefour100', category: '禮卡/禮券', name: '100元家樂福禮卷', invoices: 20, channel: '雲端發票', status: 'out', note: '兌換完畢（預計114年7~8月補貨）', img: '' },
+    ];
+
+    const el = (id) => document.getElementById(id);
+    const grid = el('grid');
+    const q = el('q');
+    const statusSel = el('status');
+    const sortSel = el('sort');
+    const meta = el('meta');
+
+    let activeCat = 'all';
+
+    function formatInvoices(n){
+      return `${n} 張`;
+    }
+
+    function statusBadge(s){
+      if(s === 'out') return { cls: 'out', text: '兌換完畢' };
+      if(s === 'limited') return { cls: 'lim', text: '數量有限' };
+      return { cls: 'ok', text: '可兌換' };
+    }
+
+    function matches(it){
+      const keyword = (q.value || '').trim().toLowerCase();
+      const hit = !keyword || it.name.toLowerCase().includes(keyword) || (it.note||'').toLowerCase().includes(keyword);
+
+      const st = statusSel.value;
+      const stHit = (st === 'all')
+        || (st === 'available' && (it.status === 'available' || it.status === 'limited'))
+        || (st === 'out' && it.status === 'out');
+
+      const catHit = activeCat === 'all' || it.category === activeCat;
+      return hit && stHit && catHit;
+    }
+
+    function sorter(a,b){
+      const v = sortSel.value;
+      if(v === 'invoicesAsc') return a.invoices - b.invoices;
+      if(v === 'invoicesDesc') return b.invoices - a.invoices;
+      if(v === 'nameAsc') return a.name.localeCompare(b.name, 'zh-Hant');
+      return 0;
+    }
+
+    function card(it){
+      const s = statusBadge(it.status);
+      const imgHtml = it.img
+        ? `<img src="${it.img}" alt="${it.name}">`
+        : `<div aria-hidden="true">${it.category}</div>`;
+
+      const note = it.note ? `<div class="note">${escapeHtml(it.note)}</div>` : '';
+
+      return `
+        <article class="card">
+          <div class="img">${imgHtml}</div>
+          <div class="cardBody">
+            <div class="name">${escapeHtml(it.name)}</div>
+            <div class="badges">
+              <span class="badge ${s.cls}">${s.text}</span>
+              <span class="badge">${escapeHtml(it.channel)}</span>
+              <span class="badge">${escapeHtml(it.category)}</span>
+            </div>
+            <div class="line"></div>
+            <div class="kv"><span>需要雲端發票</span><b>${formatInvoices(it.invoices)}</b></div>
+            ${note}
+          </div>
+        </article>
+      `;
+    }
+
+    function render(){
+      const list = items.filter(matches).sort(sorter);
+      grid.innerHTML = list.map(card).join('');
+
+      const available = list.filter(x => x.status !== 'out').length;
+      const out = list.filter(x => x.status === 'out').length;
+      meta.textContent = `共 ${list.length} 項（可兌換/數量有限：${available}｜兌換完畢：${out}）`;
+    }
+
+    function escapeHtml(str){
+      return String(str)
+        .replaceAll('&','&amp;')
+        .replaceAll('<','&lt;')
+        .replaceAll('>','&gt;')
+        .replaceAll('"','&quot;')
+        .replaceAll("'",'&#039;');
+    }
+
+    // Copy helpers
+    async function copyText(text){
+      try{
+        await navigator.clipboard.writeText(text);
+        alert('已複製');
+      }catch{
+        // fallback
+        const ta = document.createElement('textarea');
+        ta.value = text; document.body.appendChild(ta);
+        ta.select(); document.execCommand('copy');
+        ta.remove();
+        alert('已複製');
+      }
+    }
+
+     const copyBtn = el('copyLinkBtn');
+        if (copyBtn) copyBtn.addEventListener('click', () => copyText(location.href));
+
+    // Chips
+    document.querySelectorAll('.chip').forEach(ch => {
+      ch.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+        ch.classList.add('active');
+        activeCat = ch.dataset.cat;
+        render();
+      });
+    });
+
+    // Inputs
+    [q, statusSel, sortSel].forEach(x => x.addEventListener('input', render));
+    [statusSel, sortSel].forEach(x => x.addEventListener('change', render));
+
+    render();
+  </script>
+</body>
+</html>

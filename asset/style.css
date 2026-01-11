@@ -1,0 +1,383 @@
+:root{
+  /* 地圖色系：沙/紙/鼠尾草 + 青銅 */
+  --bg:#FEFAE0;        /* 玉米鬚：全站背景 */
+  --card:#ffffff;      /* 卡片保持白，閱讀最清楚 */
+  --muted:#6B6B5F;     /* 柔和灰綠 */
+  --text:#2F2A24;      /* 深棕黑：像地圖印刷墨色 */
+  --line:#E3DCCB;      /* 溫暖邊線 */
+
+  --paper:#E9EDC9;     /* 米色：區塊底 */
+  --sand:#FAEDCD;      /* 木瓜酥：hover/淡底 */
+
+  --brand:#8A634B;     /* 深青銅：主色（按鈕/LOGO） */
+  --brand2:#6B4B37;    /* 更深：hover */
+  --accent:#CCD5AE;    /* 乾燥鼠尾草：點綴 */
+
+  --ok:#16a34a;
+  --shadow: 0 1px 2px rgba(15,23,42,.06), 0 12px 30px rgba(15,23,42,.08);
+  --r: 18px;
+}
+
+
+*{box-sizing:border-box}
+body{margin:0;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans TC","PingFang TC","Microsoft JhengHei",Arial,sans-serif;background:var(--bg);color:var(--text)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+.hidden{display:none}
+
+/* Top bar */
+.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(226,232,240,.8)}
+.top .inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:10px}
+.logo{width:40px;height:40px;border-radius:14px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:900;font-size:12px}
+.brand h1{margin:0;font-size:14px;line-height:1.2}
+.brand p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+
+.nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 12px;font-size:13px;font-weight:800;box-shadow:0 1px 2px rgba(15,23,42,.05);cursor:pointer}
+.btn:hover{filter:brightness(.98)}
+.btn.primary{border-color:transparent;background:var(--brand);color:#fff}
+.btn.primary:hover{background:var(--brand2);filter:none}
+
+/* Dropdown（宣導專區下拉） */
+.drop{position:relative}
+.dropBtn{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.dropMenu{
+  position:absolute; top:calc(100% + 10px); left:0;
+  min-width:260px;
+  background:#fff; border:1px solid var(--line);
+  border-radius:16px; box-shadow:var(--shadow);
+  padding:8px; display:none;
+  z-index:80;
+}
+.drop.open .dropMenu,
+.drop:hover .dropMenu,
+.drop:focus-within .dropMenu{display:block}
+
+.dropTitle{padding:8px 12px 6px;font-size:12px;font-weight:900;color:var(--muted)}
+.dropItem{display:block;padding:10px 12px;border-radius:12px;font-size:13px;font-weight:800;color:var(--text)}
+.dropItem:hover{background:var(--sand)}
+.dropSep{height:1px;background:var(--line);margin:6px 6px}
+
+.menuBtn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;border:1px solid var(--line);background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.05);cursor:pointer}
+.menuBtn svg{width:20px;height:20px}
+
+.navDesktop{display:none}
+.navMobile{border-top:1px solid var(--line);background:rgba(254,250,224,.55)}
+.navMobile .grid{display:grid;gap:8px;padding:12px 0}
+.navLink{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 12px;font-size:13px;font-weight:800;color:var(--text)}
+.navLink:hover{background:var(--sand)}
+
+/* Hero */
+.hero{padding:18px 0 10px}
+.heroCard{
+  background:linear-gradient(135deg,#ffffff 0%, rgba(233,237,201,.85) 60%, rgba(204,213,174,.45) 100%);
+  border:1px solid var(--line);
+  border-radius:calc(var(--r) + 10px);
+  box-shadow:var(--shadow);
+  padding:18px
+}
+.crumb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
+.crumb a{text-decoration:underline}
+.tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 10px;font-size:12px;color:var(--muted);width:fit-content}
+.dot{width:8px;height:8px;border-radius:999px;background:var(--ok)}
+h2{margin:10px 0 0;font-size:26px;letter-spacing:-.02em}
+.sub{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.65}
+
+/* Sections / cards */
+.section{padding:14px 0 26px}
+/* Quick cards（快速入口卡片） */
+.sectionTitle{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.sectionTitle h3{margin:0;font-size:16px;letter-spacing:-.01em}
+.sectionTitle p{margin:6px 0 0;font-size:13px;color:var(--muted)}
+
+.cards{
+  display:grid;
+  gap:12px;
+  margin-top:12px;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+/* ✅ 通用兩欄容器（contact.html 那種兩張卡並排用） */
+.grid{
+  display:grid;
+  gap:12px;
+  grid-template-columns:1fr;  /* 手機 1 欄 */
+}
+
+
+/* 重要：card 可能用在 <a>，一定要讓它變成 block/grid */
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:calc(var(--r) + 8px);
+  box-shadow:var(--shadow);
+  padding:16px;
+
+  display:grid;      /* ✅ 讓 <a class="card"> 也能正常 */
+  gap:10px;
+}
+
+.cardTop{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.cardName{font-weight:900}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  border-radius:999px;border:1px solid var(--line);
+  background:#fff;padding:6px 10px;font-size:12px;
+  color:var(--muted);font-weight:900;white-space:nowrap
+}
+.cardDesc{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+
+.muted{color:var(--muted);font-size:13px;line-height:1.7}
+.list{margin:0;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.75}
+.list b{color:var(--text)}
+
+/* ===== Bottom: 好站推薦 + 聯絡資訊（你目前 style.css 缺這段） ===== */
+.bottomBand{
+  background:linear-gradient(180deg, var(--paper), rgba(250,237,205,.65));
+  border-top:1px solid var(--line);
+  padding:22px 0;
+}
+.bottomTitle{
+  margin:0 0 10px;
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:-.01em;
+  color:var(--text);
+}
+
+/* 好站推薦卡片 */
+.siteGrid{
+  display:grid;
+  gap:12px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+}
+.siteCard{
+  display:block; /* 重要：避免 <a> 變 inline */
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.siteCard:hover{filter:brightness(.99)}
+
+.siteLogo{
+  height:92px;
+  display:grid;
+  place-items:center;
+  background:#fff;
+}
+.siteLogo .mark{
+  width:64px;height:64px;
+  border-radius:18px;
+  background:linear-gradient(135deg,var(--brand),var(--brand2));
+  color:#fff;
+  display:grid;
+  place-items:center;
+  font-weight:1000;
+  letter-spacing:.08em;
+  font-size:12px;
+}
+.siteName{
+  padding:10px 12px;
+  font-size:13px;
+  font-weight:900;
+  color:var(--text);
+  border-top:1px solid var(--line);
+}
+
+/* 聯絡資訊 / 更多便民服務：兩個資訊框 */
+.infoGrid{
+  margin-top:16px;
+  display:grid;
+  gap:12px;
+  grid-template-columns:1fr;
+}
+.infoBox{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  padding:16px;
+}
+.infoBox h4{
+  margin:0 0 10px;
+  font-size:14px;
+  font-weight:900;
+}
+.infoList{
+  margin:0;
+  padding-left:18px;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.75;
+}
+.infoList b{color:var(--text)}
+.infoList a{text-decoration:underline} /* 讓連結自動有底線，可把 HTML 內的 inline underline 刪掉 */
+
+
+footer{border-top:1px solid var(--line);background:var(--bg)}
+.foot{padding:18px 0;color:var(--muted);font-size:12px;line-height:1.6}
+
+@media (min-width: 860px){
+  .navDesktop{display:flex}
+  .menuBtn{display:none}
+  .grid{grid-template-columns:1fr 1fr}
+  h2{font-size:34px}
+ 
+  .cards{grid-template-columns:repeat(3,minmax(0,1fr));}
+
+  /* ✅ 加這兩行：讓好站推薦變 5 欄、聯絡資訊變左右兩欄 */
+  .siteGrid{grid-template-columns:repeat(5, minmax(0, 1fr))}
+  .infoGrid{grid-template-columns:1.1fr .9fr}
+}
+
+
+/* ===========================
+   Hero 改成放圖片（加 class：is-image）
+   =========================== */
+.heroCard.is-image{
+  padding:0;
+  background:#fff;          /* 讓圖片顏色乾淨 */
+  overflow:hidden;
+}
+
+.heroCard.is-image .heroBanner{
+  position:relative;
+  border-radius:inherit;
+  overflow:hidden;
+}
+
+.heroCard.is-image .heroBanner img{
+  width:100%;
+  height:280px;             /* 桌機高度 */
+  object-fit:cover;
+  display:block;
+}
+
+/* 文字疊在圖片上（可選：HTML 有放才會顯示） */
+.heroCard.is-image .heroOverlay{
+  position:absolute;
+  inset:0;
+  /* 地圖色系的咖色遮罩：左深右淺 */
+  background:linear-gradient(90deg, rgba(107,75,55,.55) 0%, rgba(107,75,55,.18) 55%, rgba(107,75,55,0) 100%);
+}
+
+.heroCard.is-image .heroOverlayContent{
+  position:absolute;
+  left:18px;
+  right:18px;
+  bottom:16px;
+  color:#fff;
+  text-shadow:0 6px 18px rgba(0,0,0,.25);
+}
+
+.heroCard.is-image .heroOverlayContent h1{
+  margin:0 0 6px;
+  font-size:34px;
+  line-height:1.1;
+  letter-spacing:.5px;
+}
+
+.heroCard.is-image .heroOverlayContent p{
+  margin:0;
+  max-width:62ch;
+  opacity:.95;
+}
+
+/* 手機高度 */
+@media (max-width: 600px){
+  .heroCard.is-image .heroBanner img{height:210px}
+  .heroCard.is-image .heroOverlayContent h1{font-size:26px}
+}
+/* ===========================
+   items.html 專用（不影響其他頁）
+   =========================== */
+.page-items .heroGrid{display:grid;gap:14px;grid-template-columns:1fr;}
+.page-items .heroTitle{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.page-items .heroTitle h2{margin:0;font-size:22px;letter-spacing:-.02em;}
+
+.page-items .notice{margin-top:14px;display:grid;gap:10px;}
+.page-items .notice .box{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:14px;}
+.page-items .notice h3{margin:0 0 8px;font-size:13px;}
+.page-items .notice ul{margin:0;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.7;}
+
+.page-items .filters{margin:14px 0 0;display:grid;gap:10px;grid-template-columns:1fr;}
+.page-items .field{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;display:flex;gap:10px;align-items:center;box-shadow:0 1px 2px rgba(15,23,42,.04);}
+.page-items .field label{font-size:12px;color:var(--muted);font-weight:900;min-width:64px;}
+.page-items .field input,
+.page-items .field select{width:100%;border:0;outline:0;background:transparent;font-size:14px;}
+
+.page-items .summary{margin:14px 0 8px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;}
+.page-items .summary .meta{color:var(--muted);font-size:13px;}
+
+.page-items .chips{display:flex;gap:8px;flex-wrap:wrap;}
+.page-items .chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 10px;font-size:12px;font-weight:900;color:var(--muted);cursor:pointer;user-select:none;}
+.page-items .chip.active{background:var(--brand);color:#fff;border-color:var(--brand);}
+
+/* items 的商品清單格線（覆蓋通用 .grid） */
+.page-items .grid{display:grid;gap:12px;grid-template-columns:repeat(1,minmax(0,1fr));padding:8px 0 24px;}
+
+/* items 的商品卡（覆蓋通用 .card / .badge） */
+.page-items .card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:calc(var(--r) + 8px);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  padding:0;
+}
+.page-items .img{height:150px;background:linear-gradient(135deg,#e2e8f0,#f8fafc);display:grid;place-items:center;color:var(--muted);font-weight:900;}
+.page-items .img img{width:100%;height:100%;object-fit:cover;display:block;}
+.page-items .cardBody{padding:14px 14px 12px;display:grid;gap:10px;}
+.page-items .name{font-size:15px;font-weight:900;letter-spacing:-.01em;line-height:1.35;}
+.page-items .badges{display:flex;gap:8px;flex-wrap:wrap;}
+.page-items .badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid var(--line);background:#fff;padding:6px 10px;font-size:12px;color:var(--muted);font-weight:900;}
+.page-items .badge.ok{border-color:rgba(22,163,74,.25);background:rgba(22,163,74,.08);color:#166534;}
+.page-items .badge.out{border-color:rgba(239,68,68,.25);background:rgba(239,68,68,.08);color:#991b1b;}
+.page-items .badge.lim{border-color:rgba(245,158,11,.25);background:rgba(245,158,11,.10);color:#92400e;}
+.page-items .line{border-top:1px dashed rgba(226,232,240,.9);}
+.page-items .kv{display:flex;justify-content:space-between;gap:10px;font-size:13px;color:var(--muted);}
+.page-items .kv b{color:var(--text);}
+.page-items .note{font-size:12px;color:var(--muted);line-height:1.55;}
+.page-items .actions{display:flex;gap:10px;flex-wrap:wrap;}
+.page-items .actions .btn{flex:1;min-width:120px;text-align:center;}
+
+/* Modal（items 專用） */
+.page-items .modal{position:fixed;inset:0;background:rgba(2,6,23,.55);display:none;align-items:center;justify-content:center;padding:16px;z-index:60;}
+.page-items .modal.show{display:flex;}
+.page-items .modalCard{width:min(720px,100%);background:#fff;border-radius:24px;border:1px solid rgba(226,232,240,.9);box-shadow:var(--shadow);overflow:hidden;}
+.page-items .modalHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:16px;border-bottom:1px solid rgba(226,232,240,.9);}
+.page-items .modalHead h3{margin:0;font-size:16px;}
+.page-items .x{border:1px solid var(--line);background:#fff;border-radius:14px;width:40px;height:40px;display:grid;place-items:center;cursor:pointer;}
+.page-items .modalBody{padding:16px 16px 18px;display:grid;gap:12px;}
+.page-items .steps{margin:0;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.7;}
+.page-items .callout{border:1px solid var(--line);background:linear-gradient(135deg,#ffffff,#f8fafc);border-radius:18px;padding:12px;}
+.page-items .callout b{color:var(--text);}
+
+/* items 響應式 */
+@media (min-width: 860px){
+  .page-items .heroGrid{grid-template-columns:1.25fr .75fr;}
+  .page-items .filters{grid-template-columns:1.2fr .6fr .6fr;}
+  .page-items .grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (min-width: 1024px){
+  .page-items .grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+}
+/* items.html：上方兩張 heroCard 桌機左右並排 */
+.heroGrid{
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1fr; /* 手機：一欄 */
+}
+
+@media (min-width: 860px){
+  .heroGrid{
+    grid-template-columns: 1.25fr .75fr; /* 桌機：左右並排 */
+    align-items: start;
+  }
+}
+
