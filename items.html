@@ -62,7 +62,7 @@
   <main>
     <section class="hero">
       <div class="wrap">
-        <div class="heroGrid">
+        <div class="heroGrid" style="grid-template-columns:1fr">
           <div class="heroCard">
             <div class="heroTitle">
               <div>
@@ -92,6 +92,11 @@
                 <label for="q">搜尋</label>
                 <input id="q" placeholder="輸入品名關鍵字：例如 史努比 / 保溫 / 垃圾袋" />
               </div>
+              <div class="field" style="display:flex;flex-direction:column;justify-content:flex-end;">
+                <label style="visibility:hidden">開始查品項</label>
+                <a class="btn primary" href="#grid" style="display:block;width:100%;text-align:center;">開始查品項</a>
+              </div>
+
               <div class="field">
                 <label for="status">狀態</label>
                 <select id="status">
@@ -121,25 +126,7 @@
             </div>
           </div>
 
-          <div class="heroCard">
-            <div class="tag"><span class="dot"></span> 建議做法</div>
-            <p class="sub" style="margin-top:10px">
-              你只要更新下方「資料清單」就會自動換版面。圖片可放在 <b>assets/items/</b>，
-              例如 <b>assets/items/snoopy-mug.jpg</b>。
-            </p>
-            <div class="notice" style="margin-top:12px">
-              <div class="box">
-                <h3>上架到 GitHub Pages（超快）</h3>
-                <ul>
-                  <li>把本檔案存成 <b>items.html</b> 丟到 repo 根目錄</li>
-                  <li>Settings → Pages → main / (root)</li>
-                  <li>網址：<b>https://帳號.github.io/RepoName/items.html</b></li>
-                </ul>
-              </div>
-            </div>
-            <a class="btn primary" href="#items" style="display:block;margin-top:12px">開始查品項</a>
-          </div>
-        </div>
+       
       </div>
     </section>
 
