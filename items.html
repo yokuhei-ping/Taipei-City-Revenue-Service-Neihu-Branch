@@ -88,24 +88,19 @@
             </div>
 
             <div class="filters" id="items">
-              <div class="field">
+              <!-- 搜尋 -->
+              <div class="field f-search">
                 <label for="q">搜尋</label>
                 <input id="q" placeholder="輸入品名關鍵字：例如 史努比 / 保溫 / 垃圾袋" />
               </div>
-              <div class="field" style="display:flex;flex-direction:column;justify-content:flex-end;">
-                <label style="visibility:hidden">開始查品項</label>
-                <a class="btn primary" href="#grid" style="display:block;width:100%;text-align:center;">開始查品項</a>
+            
+              <!-- 開始查品項：只留按鈕（外框用 CSS 拿掉） -->
+              <div class="field f-action noCard">
+                <a class="btn primary btnBlock" href="#grid" aria-label="開始查品項">開始查品項</a>
               </div>
-
-              <div class="field">
-                <label for="status">狀態</label>
-                <select id="status">
-                  <option value="all">全部</option>
-                  <option value="available">只看可兌換</option>
-                  <option value="out">只看兌換完畢</option>
-                </select>
-              </div>
-              <div class="field">
+            
+              <!-- 排序 -->
+              <div class="field f-sort">
                 <label for="sort">排序</label>
                 <select id="sort">
                   <option value="invoicesAsc">張數：由少到多</option>
@@ -113,7 +108,18 @@
                   <option value="nameAsc">品名：A→Z</option>
                 </select>
               </div>
+            
+              <!-- 狀態 -->
+              <div class="field f-status">
+                <label for="status">狀態</label>
+                <select id="status">
+                  <option value="all">全部</option>
+                  <option value="available">只看可兌換</option>
+                  <option value="out">只看兌換完畢</option>
+                </select>
+              </div>
             </div>
+
 
             <div class="summary">
               <div class="meta" id="meta">載入中…</div>
