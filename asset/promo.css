@@ -52,12 +52,25 @@
 
 /* ===== promo-howto.html（稅務申辦教你做～）專用樣式：由頁面內嵌 CSS 移出 ===== */
 :root{
-      --bg:#f8fafc; --card:#ffffff; --muted:#64748b; --text:#0f172a; --line:#e2e8f0;
-      --brand:#0f172a; --ok:#16a34a;
-      --shadow: 0 1px 2px rgba(15,23,42,.06), 0 12px 30px rgba(15,23,42,.08);
-      --r: 18px;
-    }
-    *{box-sizing:border-box}
+  /* 地圖色系：沙/紙/鼠尾草 + 青銅 */
+  --bg:#FEFAE0;        /* 玉米鬚：全站背景 */
+  --card:#ffffff;      /* 卡片保持白，閱讀最清楚 */
+  --muted:#6B6B5F;     /* 柔和灰綠 */
+  --text:#2F2A24;      /* 深棕黑：像地圖印刷墨色 */
+  --line:#E3DCCB;      /* 溫暖邊線 */
+
+  --paper:#E9EDC9;     /* 米色：區塊底 */
+  --sand:#FAEDCD;      /* 木瓜酥：hover/淡底 */
+
+  --brand:#8A634B;     /* 深青銅：主色（按鈕/LOGO） */
+  --brand2:#6B4B37;    /* 更深：hover */
+  --accent:#CCD5AE;    /* 乾燥鼠尾草：點綴 */
+
+  --ok:#16a34a;
+  --shadow: 0 1px 2px rgba(15,23,42,.06), 0 12px 30px rgba(15,23,42,.08);
+  --r: 18px;
+}
+*{box-sizing:border-box}
     body{margin:0;font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;background:var(--bg);color:var(--text)}
     a{color:inherit;text-decoration:none}
     .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
@@ -105,7 +118,7 @@
       font-weight:800;
       color:var(--text);
     }
-    .dropItem:hover{background:#f1f5f9}
+    .dropItem:hover{background:var(--sand)}
     .dropSep{height:1px;background:rgba(226,232,240,.9);margin:6px 6px}
 
     
@@ -113,10 +126,10 @@
     .menuBtn svg{width:20px;height:20px}
 
     .navDesktop{display:none}
-    .navMobile{border-top:1px solid rgba(226,232,240,.9);background:#fff}
+    .navMobile{border-top:1px solid rgba(226,232,240,.9);background:rgba(254,250,224,.55)}
     .navMobile .grid{display:grid;gap:8px;padding:12px 0}
     .navLink{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 12px;font-size:13px;font-weight:800;color:var(--text)}
-    .navLink:hover{background:#f1f5f9}
+    .navLink:hover{background:var(--sand)}
 
     /* Hero */
     .hero{padding:18px 0 10px}
@@ -147,7 +160,7 @@
     .metaRow{display:flex;gap:8px;flex-wrap:wrap}
     .badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid var(--line);background:#fff;padding:6px 10px;font-size:12px;color:var(--muted);font-weight:900}
 
-    footer{border-top:1px solid rgba(226,232,240,.9);background:#fff}
+    footer{border-top:1px solid rgba(226,232,240,.9);background:rgba(254,250,224,.55)}
     .foot{padding:18px 0;color:var(--muted);font-size:12px;line-height:1.6}
 
     @media (min-width: 860px){
