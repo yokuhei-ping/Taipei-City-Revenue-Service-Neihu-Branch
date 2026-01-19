@@ -286,10 +286,13 @@ footer{border-top:1px solid var(--line);background:var(--bg)}
 .heroCard.is-image .heroOverlay{
   position:absolute;
   inset:0;
-  /* 地圖色系的咖色遮罩：左深右淺 */
-  /*background:linear-gradient(90deg, rgba(107,75,55,.55) 0%, rgba(107,75,55,.18) 55%, rgba(107,75,55,0) 100%);/*
 }
+  /* 地圖色系的咖色遮罩：左深右淺 */
+  /*background:linear-gradient(90deg, rgba(107,75,55,.55) 0%, rgba(107,75,55,.18) 55%, rgba(107,75,55,0) 100%));/*
 
+
+  
+  
 .heroCard.is-image .heroOverlayContent{
   position:absolute;
   left:18px;
