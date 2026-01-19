@@ -49,3 +49,110 @@
   font-size:13px;
   line-height:1.6;
 }
+
+/* ===== promo-howto.html（稅務申辦教你做～）專用樣式：由頁面內嵌 CSS 移出 ===== */
+:root{
+      --bg:#f8fafc; --card:#ffffff; --muted:#64748b; --text:#0f172a; --line:#e2e8f0;
+      --brand:#0f172a; --ok:#16a34a;
+      --shadow: 0 1px 2px rgba(15,23,42,.06), 0 12px 30px rgba(15,23,42,.08);
+      --r: 18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;background:var(--bg);color:var(--text)}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+    .hidden{display:none}
+
+    /* Top bar */
+    .top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter: blur(10px);border-bottom:1px solid rgba(226,232,240,.8)}
+    .top .inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:10px}
+    .logo{width:40px;height:40px;border-radius:14px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:900;font-size:12px;letter-spacing:.5px}
+    .brand h1{margin:0;font-size:14px;line-height:1.2}
+    .brand p{margin:2px 0 0;font-size:12px;color:var(--muted)}
+
+    .nav{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .btn{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 12px;font-size:13px;font-weight:800;box-shadow:0 1px 2px rgba(15,23,42,.05);cursor:pointer}
+    .btn.primary{border-color:transparent;background:var(--brand);color:#fff}
+    .btn:hover{filter:brightness(.98)}
+
+    /* Dropdown（宣導專區下拉） */
+    .drop{position:relative}
+    .dropBtn{display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+    .dropMenu{
+      position:absolute; top:calc(100% + 10px); left:0;
+      min-width:260px;
+      background:#fff; border:1px solid var(--line);
+      border-radius:16px; box-shadow:var(--shadow);
+      padding:8px; display:none;
+      z-index:80;
+    }
+    .drop.open .dropMenu,
+    .drop:hover .dropMenu,
+    .drop:focus-within .dropMenu{display:block}
+    
+    .dropTitle{
+      padding:8px 12px 6px;
+      font-size:12px;
+      font-weight:900;
+      color:var(--muted);
+    }
+    .dropItem{
+      display:block;
+      padding:10px 12px;
+      border-radius:12px;
+      font-size:13px;
+      font-weight:800;
+      color:var(--text);
+    }
+    .dropItem:hover{background:#f1f5f9}
+    .dropSep{height:1px;background:rgba(226,232,240,.9);margin:6px 6px}
+
+    
+    .menuBtn{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;border:1px solid var(--line);background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.05);cursor:pointer}
+    .menuBtn svg{width:20px;height:20px}
+
+    .navDesktop{display:none}
+    .navMobile{border-top:1px solid rgba(226,232,240,.9);background:#fff}
+    .navMobile .grid{display:grid;gap:8px;padding:12px 0}
+    .navLink{border:1px solid var(--line);background:#fff;border-radius:14px;padding:10px 12px;font-size:13px;font-weight:800;color:var(--text)}
+    .navLink:hover{background:#f1f5f9}
+
+    /* Hero */
+    .hero{padding:18px 0 10px}
+    .heroCard{position:relative;overflow:hidden;background:linear-gradient(135deg, #ffffff, #eef2ff);border:1px solid var(--line);border-radius:calc(var(--r) + 10px);box-shadow:var(--shadow);padding:18px}
+    .crumb{display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--muted)}
+    .crumb a{text-decoration:underline}
+    .tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 10px;font-size:12px;color:var(--muted);width:fit-content}
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--ok)}
+    h2{margin:10px 0 0;font-size:26px;letter-spacing:-.02em}
+    .sub{margin:8px 0 0;color:var(--muted);font-size:13px;line-height:1.65}
+
+    /* Video grid */
+    .section{padding:14px 0 26px}
+    .sectionTitle{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;flex-wrap:wrap}
+    .sectionTitle h3{margin:0;font-size:16px;letter-spacing:-.01em}
+    .sectionTitle p{margin:6px 0 0;font-size:13px;color:var(--muted)}
+
+    .videoGrid{display:grid;gap:14px;margin-top:12px;grid-template-columns: 1fr}
+    .videoCard{background:#fff;border:1px solid var(--line);border-radius:calc(var(--r) + 8px);box-shadow:var(--shadow);overflow:hidden}
+
+    /* 16:9 */
+    .ratio{position:relative;width:100%;padding-top:56.25%;background:#0b1220}
+    .ratio iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+    .videoBody{padding:14px 14px 16px;display:grid;gap:8px}
+    .videoTitle{font-weight:900;letter-spacing:-.01em}
+    .videoDesc{margin:0;color:var(--muted);font-size:13px;line-height:1.7}
+    .metaRow{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid var(--line);background:#fff;padding:6px 10px;font-size:12px;color:var(--muted);font-weight:900}
+
+    footer{border-top:1px solid rgba(226,232,240,.9);background:#fff}
+    .foot{padding:18px 0;color:var(--muted);font-size:12px;line-height:1.6}
+
+    @media (min-width: 860px){
+      .navDesktop{display:flex}
+      .menuBtn{display:none}
+      .videoGrid{grid-template-columns: 1fr 1fr}
+      h2{font-size:34px}
+    }
