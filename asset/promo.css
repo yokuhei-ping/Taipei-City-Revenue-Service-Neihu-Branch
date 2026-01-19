@@ -1,0 +1,51 @@
+/* ===== 宣導頁：YouTube 卡片排版 ===== */
+.videoGrid{
+  display:grid;
+  gap:16px;
+  grid-template-columns:1fr;
+  margin-top:12px;
+}
+
+@media (min-width: 860px){
+  .videoGrid{ grid-template-columns:1fr 1fr; }
+}
+
+.videoCard{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+
+.videoFrame{
+  position:relative;
+  width:100%;
+  padding-top:56.25%; /* 16:9 */
+  background:#000;
+}
+
+.videoFrame iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+.videoMeta{
+  padding:12px 14px;
+  display:grid;
+  gap:6px;
+}
+
+.videoTitle{
+  font-weight:900;
+  font-size:14px;
+}
+
+.videoDesc{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+}
