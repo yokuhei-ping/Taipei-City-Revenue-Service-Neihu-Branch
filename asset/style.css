@@ -474,20 +474,7 @@ footer{border-top:1px solid var(--line);background:var(--bg)}
   object-position: center top; /* 優先顯示上方 */
   display: block;
 }
-/* 這段刪掉或註解
-/* 下半遮罩 + 顯示分類文字 */
-.page-items .card .img.hasImg::after {
-  content: attr(data-cat);     /* 直接拿 data-cat 的分類字 */
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 50%;                 /* ✅ 下半部 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-*/
+
   /* 下半像原來的底色（你可換成你原本 img 區的背景色） */
   background: rgba(248, 250, 252, 0.92);
 
