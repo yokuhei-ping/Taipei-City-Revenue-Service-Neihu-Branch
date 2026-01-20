@@ -495,6 +495,11 @@ footer{border-top:1px solid var(--line);background:var(--bg)}
   letter-spacing: .08em;
 }
 
+/* 有圖片時：不要讓分類文字浮在圖片上 */
+.page-items .card .img:has(img) > div[aria-hidden="true"]{
+  display: none !important;
+  }
+
 
 /* ===== Hero Carousel ===== */
 .heroCard.is-image .heroBanner{ position:relative; border-radius:inherit; overflow:hidden; }
