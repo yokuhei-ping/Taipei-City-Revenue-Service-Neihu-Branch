@@ -332,6 +332,21 @@ footer{border-top:1px solid var(--line);background:var(--bg)}
 .page-items .notice h3{margin:0 0 8px;font-size:13px;}
 .page-items .notice ul{margin:0;padding-left:18px;color:var(--muted);font-size:13px;line-height:1.7;}
 
+/* ✅ items：兌換提醒框字體統一（只影響 items 頁） */
+.page-items .exchange-notice,
+.page-items .exchange-notice p,
+.page-items .exchange-notice li,
+.page-items .exchange-notice h4{
+  font-size: 15px;      /* 想更大就改 14px / 15px */
+  line-height: 1.7;
+}
+
+.page-items .exchange-notice h4{
+  margin: 10px 0 6px;   /* 讓小標題有間距，但不變大 */
+  font-weight: 900;     /* 只加粗，大小不變 */
+}
+
+
 .page-items .filters{
   margin:14px 0 0;
   display:grid;
