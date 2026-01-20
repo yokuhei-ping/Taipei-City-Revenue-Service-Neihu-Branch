@@ -500,6 +500,17 @@ footer{border-top:1px solid var(--line);background:var(--bg)}
   display: none !important;
   }
 
+.page-items .card .img > div[aria-hidden="true"]{
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  letter-spacing: .08em;
+  background: #f1f5f9;
+  color: #475569;
+}
+
 
 /* ===== Hero Carousel ===== */
 .heroCard.is-image .heroBanner{ position:relative; border-radius:inherit; overflow:hidden; }
