@@ -455,6 +455,46 @@ footer{border-top:1px solid var(--line);background:var(--bg)}
   }
 }
 
+/* 有圖的卡片：圖片只露上半，下半顯示分類（像原來沒圖的樣子） */
+.page-items .card .img {
+  position: relative;
+  overflow: hidden;
+}
+
+/* 控制圖片區高度：你可自行調整 140/160/180 */
+.page-items .card .img.hasImg {
+  height: 160px;
+}
+
+/* 圖片填滿整個 img 區 */
+.page-items .card .img.hasImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* 想完整顯示不裁切可改 contain */
+  object-position: center top; /* 優先顯示上方 */
+  display: block;
+}
+
+/* 下半遮罩 + 顯示分類文字 */
+.page-items .card .img.hasImg::after {
+  content: attr(data-cat);     /* 直接拿 data-cat 的分類字 */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 50%;                 /* ✅ 下半部 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* 下半像原來的底色（你可換成你原本 img 區的背景色） */
+  background: rgba(248, 250, 252, 0.92);
+
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+
 /* ===== Hero Carousel ===== */
 .heroCard.is-image .heroBanner{ position:relative; border-radius:inherit; overflow:hidden; }
 .heroCard.is-image .carouselTrack{
