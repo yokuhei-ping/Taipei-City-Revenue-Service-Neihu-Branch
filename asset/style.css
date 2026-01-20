@@ -499,6 +499,14 @@ footer{border-top:1px solid var(--line);background:var(--bg)}
 }
 
 
+/* ✅ 保險：有圖片時，強制關掉任何偽元素疊字（避免又冒出分類字） */
+.page-items .card .img.hasImg::before,
+.page-items .card .img.hasImg::after{
+  content: none !important;
+  display: none !important;
+}
+
+
 /* ===== Hero Carousel ===== */
 .heroCard.is-image .heroBanner{ position:relative; border-radius:inherit; overflow:hidden; }
 .heroCard.is-image .carouselTrack{
