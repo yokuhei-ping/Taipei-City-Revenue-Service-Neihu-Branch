@@ -244,7 +244,11 @@
         ? `<img src="${it.img}" alt="${it.name}">`
         : `<div aria-hidden="true">${it.category}</div>`;
 
-      const note = it.note ? `<div class="note">${escapeHtml(it.note)}</div>` : '';
+      const noteText = (it.note || '').replace(/\s*🔔\s*/g, '\n🔔 ');
+      const note = it.note
+        ? `<div class="note">${escapeHtml(noteText).replace(/\n/g, '<br>')}</div>`
+        : '';
+
 
       return `
         <article class="card">
