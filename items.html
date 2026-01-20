@@ -220,7 +220,7 @@
 
       return `
         <article class="card">
-          <div class="img">${imgHtml}</div>
+          <div class="img ${it.img ? 'hasImg' : ''}" data-cat="${escapeHtml(it.category)}">${imgHtml}</div>
           <div class="cardBody">
             <div class="name">${escapeHtml(it.name)}</div>
             <div class="badges">
